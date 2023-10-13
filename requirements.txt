@@ -1,0 +1,7 @@
+fastapi[full]
+pydantic
+vosk
+pydub
+streaming-form-data
+httpx
+python-multipart
