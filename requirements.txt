@@ -5,3 +5,11 @@ pydub
 streaming-form-data
 httpx
 python-multipart
+uvicorn
+moviepy
+yake
+diffusers
+torch
+aiofiles
+accelerate
+transformers
