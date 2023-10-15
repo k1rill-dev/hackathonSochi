@@ -1,3 +1,9 @@
+from envparse import Env
+
+env = Env()
+
+env.read_envfile()
+
 MAX_FILE_SIZE = 1024 * 1024 * 1024 * 20
 MAX_REQUEST_BODY_SIZE = MAX_FILE_SIZE + 1024
 PROMPTS = {
@@ -8,3 +14,6 @@ PROMPTS = {
     "gta": "GTA-style artwork human  . satirical, exaggerated, pop art style, vibrant colors, iconic characters, action-packed",
     "biomech": "biomechanical style human . blend of organic and mechanical elements, futuristic, cybernetic, detailed, intricate"
 }
+
+IAM_TOKEN = env.str('IAM_TOKEN')
+FOLDER_ID = env.str('FOLDER_ID')

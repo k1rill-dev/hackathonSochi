@@ -1,6 +1,6 @@
 from typing import Union
 from PIL import Image
-from diffusers import StableDiffusionImg2ImgPipeline
+from diffusers import StableDiffusionImg2ImgPipeline, StableDiffusionPipeline
 import torch
 import gc
 
@@ -11,10 +11,18 @@ class ImageGenerator:
                  pipe: StableDiffusionImg2ImgPipeline = None) \
             -> Union[None, Image.Image]:
         with torch.no_grad():
-            image = pipe(prompt=prompt, negative_prompt=negative_prompt, image=initial_image, strength=strength).images[0]
+            image = pipe(prompt=prompt, negative_prompt=negative_prompt, image=initial_image, strength=strength).images[
+                0]
             torch.cuda.empty_cache()
             return image
 
+    @staticmethod
+    def generate_by_text(prompt: str,
+                         pipe: StableDiffusionPipeline = None):
+        with torch.no_grad():
+            image = pipe(prompt=prompt).images[0]
+            torch.cuda.empty_cache()
+            return image
 
 
 # with torch.no_grad():
